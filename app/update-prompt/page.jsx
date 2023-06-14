@@ -43,6 +43,9 @@ const EditPrompt = () => {
         try {
             const response = await fetch(`/api/prompt/${promptId}`,{
                 method: 'PATCH',
+                headers:{
+                    'Cache-Control': 'no-cache'
+                },
                 body: JSON.stringify({
                     prompt: post.prompt,
                     tag: post.tag
