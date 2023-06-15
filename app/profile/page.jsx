@@ -14,7 +14,7 @@ const MyProfile = async() => {
 
     useEffect(()=>{
     const fetchPosts = async () =>{
-      const response = await fetch(`/api/users/${session?.user.id}/posts`, { next: { revalidate: 10 } });
+      const response = await fetch(`/api/users/${session?.user.id}/posts`, { next: { revalidate: 20 } });
       const data = await response.json();
       setPosts(data)
     }
