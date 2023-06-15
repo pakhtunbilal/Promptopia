@@ -14,11 +14,11 @@ const MyProfile = async() => {
 
     useEffect(()=>{
     const fetchPosts = async () =>{
-      const response = await fetch(`/api/users/${session.user.id}/posts`);
+      const response = await fetch(`/api/users/${session?.user.id}/posts`, { next: { revalidate: 10 } });
       const data = await response.json();
       setPosts(data)
     }
-    if(session.user.id){
+    if(session?.user.id){
         fetchPosts()
     } 
   },[])
