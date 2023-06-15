@@ -5,8 +5,8 @@ export const GET = async (req, {params})=>{
     try {
         await connectToDB();
         const prompts = await Prompt.find({
-            creator: params.id
-        }).populate('creator')
+            creater: params.id
+        }).populate('creater')
         return new Response(JSON.stringify(prompts), {status: 200})
     } catch (error) {
         return new Response("Failed to fetvh all the prompts.", {status: 500})
